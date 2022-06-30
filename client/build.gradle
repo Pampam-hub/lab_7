@@ -1,0 +1,23 @@
+apply plugin: 'java'
+
+group = "ru.itmo.lab"
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation(project(":common"))
+    implementation group: 'com.thoughtworks.xstream', name: 'xstream', version: '1.4.19'
+}
+
+tasks.jar {
+    manifest {
+        attributes['Main-Class'] = 'ru.itmo.lab.Client'
+    }
+
+    configurations["runtimeClasspath"].forEach {file ->
+        from(zipTree(file.absoluteFile))
+    }
+
+}

@@ -1,0 +1,10 @@
+apply plugin: 'java'
+
+group = "ru.itmo.lab"
+
+dependencies {
+    implementation group: 'com.thoughtworks.xstream', name: 'xstream', version: '1.4.19'
+}
+repositories {
+    mavenCentral()
+}

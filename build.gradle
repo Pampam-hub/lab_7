@@ -1,0 +1,7 @@
+apply plugin: 'java'
+
+group = "ru.com.lab"
+
+repositories {
+    mavenCentral()
+}
