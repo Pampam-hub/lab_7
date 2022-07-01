@@ -1,5 +1,14 @@
-update 1
+insert 1
 Ildar
+2
+1
+1
+1
+WATER
+GOOD
+
+insert 2
+Katya
 2
 1
 1

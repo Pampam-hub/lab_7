@@ -91,7 +91,6 @@ public class DBStorage {
     public void update(Integer id, Dragon entity, String username)
             throws SQLException, EntityAlreadyExistsException, EntityNotFoundException {
         dbConnector.handleQuery((Connection connection) -> {
-            
             String existenceQuery = "SELECT COUNT (*) "
                     + "FROM dragons, users WHERE dragons.id = ? "
                     + "AND dragons.owner_id = users.id AND users.login = ?;";
@@ -104,7 +103,6 @@ public class DBStorage {
                 throw new EntityNotFoundException(Dragon.class, id);
             }
 
-
             connection.createStatement().executeUpdate("BEGIN TRANSACTION;");
             String updateQuery = "UPDATE dragons "
                     + "SET name = ?, "
@@ -114,8 +112,8 @@ public class DBStorage {
                     + "wingspan = ?, "
                     + "dragon_type = ?, "
                     + "dragon_character = ?, "
-                    + "eyes_count = ?, "
-                    + "FROM users WHERE dragon.id = ? "
+                    + "eyes_count = ? "
+                    + "FROM users WHERE dragons.id = ? "
                     + "AND dragons.owner_id = users.id "
                     + "AND users.login = ?;";
             preparedStatement = connection.prepareStatement(updateQuery);
@@ -142,7 +140,7 @@ public class DBStorage {
             throws EntityNotFoundException, EntityAlreadyExistsException, SQLException {
         dbConnector.handleQuery((Connection connection) -> {
             String existenceQuery = "SELECT COUNT (*) "
-                    + "FROM dragons, users WHERE dragons.id = ?;"
+                    + "FROM dragons, users WHERE dragons.id = ? "
                     + "AND dragons.owner_id = users.id AND users.login = ?;";
             ;
             PreparedStatement preparedStatement = connection.prepareStatement(existenceQuery);

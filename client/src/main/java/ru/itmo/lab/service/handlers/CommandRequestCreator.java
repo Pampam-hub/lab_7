@@ -24,7 +24,7 @@ public class CommandRequestCreator {
         AVAILABLE_COMMANDS.put("history", new WithoutArgsCommandRequest());
         AVAILABLE_COMMANDS.put("remove_lower_key", new WithIdCommandRequest());
         AVAILABLE_COMMANDS.put("min_by_age", new WithoutArgsCommandRequest());
-        AVAILABLE_COMMANDS.put("filter_grater_than_type", new WithTypeCommandRequest());
+        AVAILABLE_COMMANDS.put("filter_greater_than_type", new WithTypeCommandRequest());
         AVAILABLE_COMMANDS.put("print_field_descending_age", new WithoutArgsCommandRequest());
     }
 
